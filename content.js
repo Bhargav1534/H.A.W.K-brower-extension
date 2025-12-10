@@ -13,7 +13,7 @@ function extractReadable() {
       mode: "readable",
       title: article.title || document.title,
       text: article.textContent || "",
-      html: article.content || "",
+      // html: article.content || "",
       excerpt: article.excerpt || ""
     };
   } catch (e) {
