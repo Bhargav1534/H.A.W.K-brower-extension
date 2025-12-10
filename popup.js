@@ -7,6 +7,12 @@ function authHeader() {
 }
 
 document.getElementById("sendBtn").addEventListener("click", sendPrompt);
+document.getElementById("promptInput").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    sendPrompt();
+  }
+});
 
 async function sendPrompt() {
   const input = document.getElementById("promptInput").value;

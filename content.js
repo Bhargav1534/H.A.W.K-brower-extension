@@ -1,3 +1,5 @@
+// content.js
+
 // ---------------------------------------
 // 1. Readability extraction
 // ---------------------------------------
@@ -122,11 +124,18 @@ function sendUpdateDebounced() {
 }
 
 function sendUpdate(extra = {}) {
-  chrome.runtime.sendMessage({
-    type: "PAGE_DATA",
-    data: buildPayload(extra)
-  });
+  if (!chrome.runtime?.id) return;  // prevents invalid extension errors
+
+  try {
+    chrome.runtime.sendMessage({
+      type: "PAGE_DATA",
+      data: buildPayload(extra)
+    });
+  } catch (e) {
+    console.warn("Send failed:", e);
+  }
 }
+
 
 // ---------------------------------------
 // 7. Background request: collect current page

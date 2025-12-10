@@ -28,6 +28,11 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
   }
 });
 
+chrome.tabs.onactivated.addListener(({tabId}) => {
+  chrome.tabs.sendMessage(tabId, { action: "COLLECT_DATA" });
+});
+
+
 // Trigger content script when navigation completes
 chrome.webNavigation.onCompleted.addListener(details => {
   if (details.frameId === 0) {
