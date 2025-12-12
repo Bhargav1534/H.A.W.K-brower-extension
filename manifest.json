@@ -2,25 +2,30 @@
   "manifest_version": 3,
   "name": "Hawk Browser Monitor",
   "version": "2.5.8",
+
   "permissions": [
     "tabs",
     "activeTab",
     "webNavigation",
     "scripting"
   ],
+
   "host_permissions": [
     "<all_urls>"
   ],
+
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
+
   "web_accessible_resources": [
     {
-        "resources": ["assets/send_icon.png"],
-        "matches": ["<all_urls>"]
+      "resources": ["config.local.json", "assets/send_icon.png"],
+      "matches": ["<all_urls>"]
     }
-    ],
+  ],
+
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -29,7 +34,8 @@
       "type": "module"
     }
   ],
-    "action": {
+
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "32": "assets/hawk_logo.png"

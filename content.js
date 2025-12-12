@@ -99,6 +99,7 @@ function buildPayload(extra = {}) {
   const MAX_CHARS = 20000;
 
   return {
+    source: "browser-extension",
     url: location.href,
     title: document.title,
     mode: extracted.mode,
