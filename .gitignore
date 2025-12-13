@@ -1,4 +1,4 @@
-config.local.js
+config.local.json
 *.png
 *.ico
 .env
