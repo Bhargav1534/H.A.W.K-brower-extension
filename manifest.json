@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Hawk Browser Monitor",
-  "version": "2.5.8",
+  "version": "2.6.9",
 
   "permissions": [
     "tabs",
